@@ -4,10 +4,18 @@ namespace ADOPM3_01_04
 {
     class Program
     {
+        public class DatabaseObject
+        {
+            public string someDatabaseDetails { get; set; }
+        }
         public class MyOwnException : Exception
         {
+            public DatabaseObject DBO { get; private set; }
             public MyOwnException() { }
-            public MyOwnException(string message) : base(message) { }
+            public MyOwnException(string message, DatabaseObject dbo) : base(message)
+            {
+                DBO = dbo;
+            }
             public MyOwnException(string message, Exception inner) : base(message, inner) { }
         }
 
