@@ -14,7 +14,7 @@ namespace ADOPM3_01_02
             long x2 = (long)(int)obj1;  // Explicit casting needed
 
             object obj2 = 15L;          // 15 is explicit to be of type long
-            long x3 = (long)obj1;       // Explicit casting 
+            long x3 = (long)obj2;       // Explicit casting 
 
             object obj3 = 3.5;          // 3.5 is inferred to be of type double
             int y1 = (int)(double)obj3;
