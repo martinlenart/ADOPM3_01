@@ -11,7 +11,6 @@ namespace ADOPM3_01_04
         public class MyOwnException : Exception
         {
             public DatabaseObject DBO { get; private set; }
-            public MyOwnException() { }
             public MyOwnException(string message, DatabaseObject dbo) : base(message)
             {
                 DBO = dbo;

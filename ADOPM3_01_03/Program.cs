@@ -42,6 +42,7 @@ namespace ADOPM3_01_03
             {
                 Console.WriteLine("Attempted divide by zero.");
             }
+            catch (Exception) { }
             finally
             {
                 Console.WriteLine("Code here will always be executed");

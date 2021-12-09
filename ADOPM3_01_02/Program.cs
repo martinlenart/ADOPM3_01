@@ -10,6 +10,11 @@ namespace ADOPM3_01_02
             object obj = x;             // Box the int
             int y = (int)obj;           // Unbox the int
 
+            if ((int)obj == 9)
+            {
+                Console.WriteLine("Hello");
+            }
+
             object obj1 = 15;           // 15 is inferred to be of type int
             long x2 = (long)(int)obj1;  // Explicit casting needed
 
@@ -30,16 +35,6 @@ namespace ADOPM3_01_02
             //Console.WriteLine(i2); // ?
             //Console.WriteLine(o1); // ?
             //Console.WriteLine(o2); // ?
-
-            var m1 = new { k = 123 };
-            object p1 = m1;
-            var m2 = m1;
-            object p2 = p1;
-            m1 = new { k = 4 };
-            //Console.WriteLine(m1); // ?
-            //Console.WriteLine(m2); // ?
-            //Console.WriteLine(p1); // ?
-            //Console.WriteLine(p2); // ?
         }
     }
 
