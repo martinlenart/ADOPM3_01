@@ -8,27 +8,31 @@ namespace ADOPM3_01_10
     {
         static void Main(string[] args)
         {
-			using (FileStream fs = File.Create(fname("Example4_10.txt")))
+			string filename = fname("Example4_10.txt");
+
+			using (FileStream fs = File.Create(filename))
 			using (TextWriter writer = new StreamWriter(fs))
 			{
-				var nl = string.Join("", writer.NewLine.Select(c => $"0x{(int)c:X2} "));
-				Console.WriteLine($"Newline is {nl} ");
-
-				writer.WriteLine("Line1");
-				writer.WriteLine("Line2");
+				writer.WriteLine(filename);
+				writer.WriteLine("Hello World");
+				writer.WriteLine(int.MaxValue.ToString());
+				writer.WriteLine(double.MaxValue.ToString());
 			}
+
 
 			using (FileStream fs = File.OpenRead(fname("Example4_10.txt")))
 			using (TextReader reader = new StreamReader(fs))
 			{
-				Console.WriteLine(reader.ReadLine());       // Line1
-				Console.WriteLine(reader.ReadLine());       // Line2
+				Console.WriteLine(reader.ReadLine());       
+				Console.WriteLine(reader.ReadLine());       
+				Console.WriteLine(reader.ReadLine());       
+				Console.WriteLine(reader.ReadLine());       
 			}
 
 			static string fname(string name)
 			{
 				var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-				documentPath = Path.Combine(documentPath, "AOOP2", "Examples");
+				documentPath = Path.Combine(documentPath, "ADOP", "Examples");
 				if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
 				return Path.Combine(documentPath, name);
 			}

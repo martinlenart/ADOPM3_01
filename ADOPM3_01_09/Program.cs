@@ -7,15 +7,21 @@ namespace ADOPM3_01_09
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(fname("Example4_09.txt")); //location of the file
+            string filename = fname("Example4_09.txt");
+            Console.WriteLine(filename); //location of the file
 
-            File.WriteAllText(fname("Example4_09.txt"), "Hello World");
+            File.WriteAllText(filename, $"{filename}\n");
+            File.AppendAllText(filename, "Hello World\n");
+            File.AppendAllText(filename, $"{int.MaxValue.ToString()}\n");
+            File.AppendAllText(filename, double.MaxValue.ToString());
+
+
             Console.WriteLine(File.ReadAllText(fname("Example4_09.txt")));
 
             static string fname(string name)
             {
                 var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                documentPath = Path.Combine(documentPath, "AOOP2", "Examples");
+                documentPath = Path.Combine(documentPath, "ADOP", "Examples");
                 if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
                 return Path.Combine(documentPath, name);
             }
