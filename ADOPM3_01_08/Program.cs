@@ -15,8 +15,8 @@ namespace ADOPM3_01_08
 				Console.WriteLine($"{val}:  {Environment.GetFolderPath(val)}");
 			}
 
-            Console.WriteLine(fname("Example4_08.txt")); //location of the file
-			using (Stream s = new FileStream(fname("Example4_08.txt"), FileMode.Create))
+            Console.WriteLine(fname("Example4_08.bin")); //location of the file
+			using (Stream s = new FileStream(fname("Example4_08.bin"), FileMode.Create))
 			{
 				Console.WriteLine(s.CanRead);       // True
 				Console.WriteLine(s.CanWrite);      // True
