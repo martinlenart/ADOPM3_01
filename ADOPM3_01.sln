@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30907.101
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_01_07", "ADOPM3_01_07\ADOPM3_01_07.csproj", "{647DE291-B5B1-4934-B855-1D79D6D657D9}"
 EndProject
@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_01_03", "ADOPM3_01_0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_01_04", "ADOPM3_01_04\ADOPM3_01_04.csproj", "{68EFAD81-8215-4AF6-BBDF-186BEF395057}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPM3_01_06", "ADOPM3_01_06\ADOPM3_01_06.csproj", "{328D7FB3-6E03-48FC-991D-2ECB429EE1E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ADOPM3_01_06", "ADOPM3_01_06\ADOPM3_01_06.csproj", "{328D7FB3-6E03-48FC-991D-2ECB429EE1E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOPM3_01_02a", "ADOPM3_01_02a\ADOPM3_01_02a.csproj", "{8D75879A-84E0-406F-A08A-26674187D0DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{328D7FB3-6E03-48FC-991D-2ECB429EE1E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328D7FB3-6E03-48FC-991D-2ECB429EE1E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328D7FB3-6E03-48FC-991D-2ECB429EE1E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D75879A-84E0-406F-A08A-26674187D0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D75879A-84E0-406F-A08A-26674187D0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D75879A-84E0-406F-A08A-26674187D0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D75879A-84E0-406F-A08A-26674187D0DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
