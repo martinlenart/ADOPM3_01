@@ -6,40 +6,41 @@ namespace ADOPM3_01_02
     {
         static void Main(string[] args)
         {
-            //Int is a simple, classic value type
-            int x1 = 9;
-            int x2 = 7;
+            //Boxed value type (ox1 and ox2) becomes reference types, BUT does NOT behave as normal
+            //reference types as
+            //  - a copies of the value type is boxed into the heap and unboxed into the stack
+            //  - modifications of the instance on the heap i not allowed. Compiler error
+            //Therefore, a boxed type still behaves as a value type
 
-            x1 = x2;
-            x2 = 10;
-            Console.WriteLine($"x1: {x1}, x2: {x2}");
+            //Example: int is a simple, classic value type
+            int i1 = 9;
+            int i2 = 7;
 
-            //Boxing the integer - it is now of reference type object
-            object ox1 = x1;
-            object ox2 = x2;
+            i1 = i2;    // deep copy, i.e. the content
+            i2 = 10;
+            Console.WriteLine($"i1: {i1}, i2: {i2}"); //7,10 expected value type behaviour
 
-            ox1 = ox2;
-            Console.WriteLine($"ox1: {ox1}, ox2: {ox2}");
+            //Boxing the int - it is now of reference type object
+            object bi1 = i1;
+            object bi2 = i2;  // shallow copy, i.e. the reference only
 
-            //Implicit unboxing makes it appear as a value type.
-            ox2 = 20;
-            Console.WriteLine($"ox1: {ox1}, ox2: {ox2}");
+            bi1 = bi2;  //ox1 and ox2 refer to the same instance on the heap
+            Console.WriteLine($"bi1: {bi1}, bi2: {bi2}");
 
-            //Unbox the ox1, ox2 (variables of reference type) back into value types
-            int y1 = (int)ox1;           
-            int y2 = (int)ox2;
+            //((int)(bi2)) = 20; //Compiler error when trying to change the boxed object on the heap
+            bi2 = 20;            //ox2 now refers to a new boxed instance on the heap
+            Console.WriteLine($"bi1: {bi1}, bi2: {bi2}"); // 10, 20 expected value type behaviour
 
-            y1 = y2;
-            y2 = 15;
-            Console.WriteLine($"y1: {y1}, y2: {y2}");
+            //Unbox the bi1, bi2 (variables of reference type) copies back into value types
+            //object must be casted to the boxed type
+            int ubi1 = (int)bi1;           
+            int ubi2 = (int)bi2;
+            Console.WriteLine($"ubi1: {ubi1}, ubi2: {ubi2}"); // 10, 20
 
             //Unbox the ox1, ox2 (variables of reference type) and cast it into a float
-            float z1 = (float)(int)ox1;
-            float z2 = (float)(int)ox2;
-
-            z1 = z2;
-            z2 = 15F;
-            Console.WriteLine($"z1: {z1}, z2: {z2}");
+            float ubif1 = (float)(int)bi1;
+            float ubif2 = (float)(int)bi2;
+            Console.WriteLine($"ubif1: {ubif1:N2}, ubif2: {ubif2:N2}"); // 10.00, 20.00
         }
     }
 }
