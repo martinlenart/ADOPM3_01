@@ -12,6 +12,7 @@ namespace ADOPM3_01_07
 
 			//Using statement with some Exception handling
 			using (WebClient wc = new WebClient())
+			{
 				try { s = wc.DownloadString("http://www.microsoft.com/"); }
 				catch (WebException ex)
 				{
@@ -20,16 +21,23 @@ namespace ADOPM3_01_07
 					else
 						throw;     // Can’t handle other sorts of WebException, so rethrow
 				}
+			}
 
-			File.WriteAllText(fname("Example4_07.txt"), "Hello World");
-			Console.WriteLine(fname("Example4_07.txt"));
+			//s now contains the html markup from the website
+			File.WriteAllText(fname("Example4_07.txt"), s);
 			if (File.Exists(fname("Example4_07.txt")))
 			{
+
+				//readback using StreamReader in a using declaration
 				using var reader = File.OpenText(fname("Example4_07.txt")); //Using declaration
 				Console.WriteLine(reader.ReadLine());
 
-			}				
+			}
 
+			//using var reader = ... is now out of scope and the using declaration has closed the stream
+
+
+			//Local helper method to ge platform independant paths
 			static string fname(string name)
 			{
 				//LocalApplicationData is a good place to store a temporary file
