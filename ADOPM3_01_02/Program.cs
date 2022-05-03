@@ -22,9 +22,11 @@ namespace ADOPM3_01_02
 
             //Boxing the int - it is now of reference type object
             object bi1 = i1;
-            object bi2 = i2;  // shallow copy, i.e. the reference only
+            object bi2 = i2;
 
-            bi1 = bi2;  //ox1 and ox2 refer to the same instance on the heap
+            // shallow copy, i.e. the reference only
+            //ox1 and ox2 refer to the same instance on the heap
+            bi1 = bi2;
             Console.WriteLine($"bi1: {bi1}, bi2: {bi2}");
 
             //((int)(bi2)) = 20; //Compiler error when trying to change the boxed object on the heap

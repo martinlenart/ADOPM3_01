@@ -31,6 +31,7 @@ namespace ADOPM3_01_01
             Console.WriteLine(myStack.Pop().GetType()); // System.String
             Console.WriteLine(myStack.Pop().ToString()); // Make:BMW Model:C Class Year:2020
 
+            Console.WriteLine();
             // Strongly typed Stack - using Generics
             Stack<Car> myStack1 = new Stack<Car>();
             myStack1.Push(new Car { Make = "BMW", Model = "C Class", Year = "2020" });
@@ -38,6 +39,7 @@ namespace ADOPM3_01_01
 
             // Displays the object types of the pops
             Console.WriteLine(myStack1.Pop().ToString()); // Make:BMW Model:C Class Year:2020
+            
         }
     }
     //Exercises:
