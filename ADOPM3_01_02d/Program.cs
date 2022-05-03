@@ -3,8 +3,10 @@
     class Program
     {
         public interface IA { public int iVal { get; set; } }
+
         public struct AStruct : IA { public int iVal { get; set; } }
         public class AClass : IA { public int iVal { get; set; } }
+
         static void Main(string[] args)
         {
             AClass c1 = new AClass { iVal = 9 };
