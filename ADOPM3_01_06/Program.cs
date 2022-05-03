@@ -9,6 +9,7 @@ namespace ADOPM3_01_06
         {
             //Loop through all special folders
             Console.WriteLine("Special Folder exploration");
+            
             foreach (Environment.SpecialFolder val in typeof(Environment.SpecialFolder).GetEnumValues())
             {
                 Console.WriteLine($"{val, -25} {Environment.GetFolderPath(val)}");
@@ -16,7 +17,12 @@ namespace ADOPM3_01_06
             Console.WriteLine();
             Console.WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
             Console.WriteLine();
-                      
+
+            
+            var fileName = fname("log.txt");
+            System.Console.WriteLine(fileName);
+
+
             
             //Explore the Path class
             Console.WriteLine("\nPath exploration");
@@ -41,7 +47,15 @@ namespace ADOPM3_01_06
             Console.WriteLine($"Directory name:    {Path.GetDirectoryName(mylog)}");
             Console.WriteLine($"File name:         {Path.GetFileName(mylog)}");
             Console.WriteLine($"File ext:          {Path.GetExtension(mylog)}");
-            
+
         }
+        static string fname(string filename)
+		{
+			//LocalApplicationData is a good place to store a temporary file
+			var documentPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+			documentPath = Path.Combine(documentPath, "ADOP", "Examples");
+			if (!Directory.Exists(documentPath)) Directory.CreateDirectory(documentPath);
+			return Path.Combine(documentPath, filename);
+		}
     }
 }
