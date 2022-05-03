@@ -21,6 +21,7 @@ namespace ADOPM3_01_02a
             s2.iVal = 10;
             Console.WriteLine($"s1: {s1.iVal}, s2: {s2.iVal}"); //7,10 expected value type behaviour
 
+            
             //Boxing the struct - it is now of reference type object
             object bs1 = s1;
             object bs2 = s2;  // shallow copy, i.e. the reference only
@@ -28,6 +29,7 @@ namespace ADOPM3_01_02a
             bs1 = bs2;  //ox1 and ox2 refer to the same instance on the heap
             Console.WriteLine($"bs1: {((AStruct)(bs1)).iVal}, bs2: {((AStruct)(bs2)).iVal}");
 
+            
             //((AStruct)(bs2)).iVal = 20;     //Compiler error when trying to change the boxed object on the heap
             bs2 = new AStruct { iVal = 20 };  //bs2 now refers to a new boxed instance on the heap
             Console.WriteLine($"bs1: {((AStruct)(bs1)).iVal}, bs2: {((AStruct)(bs2)).iVal}"); // 10, 20 expected value type behaviour
@@ -37,6 +39,7 @@ namespace ADOPM3_01_02a
             AStruct ubs1 = (AStruct)bs1;
             AStruct ubs2 = (AStruct)bs2;
             Console.WriteLine($"ubs1: {((AStruct)(ubs1)).iVal}, ubs2: {((AStruct)(ubs2)).iVal}"); // 10, 20
+            
         }
     }
 }
