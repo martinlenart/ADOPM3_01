@@ -50,7 +50,6 @@ namespace ADOPM3_01_13
 
         //Exercises:
         //1.    Modify above code to compress using GZip and BrotliStream algorithms
-        //2.    Modify code to compress a randomly initialized byte array of 10k bytes
-        //3.    Modify code to compress in Memory using a MemoryStream
+        //2.    Modify code to compress a randomly initialized byte array of 10k byte
     }
 }

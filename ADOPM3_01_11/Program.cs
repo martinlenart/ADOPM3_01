@@ -42,3 +42,7 @@ namespace ADOPM3_01_11
         }
     }
 }
+//Exercises:
+//1. Use StringBuilder to create a book consisting of 100_000 words n random roder from the sentence "The quick brown fox catches the white rabbit."
+//2. Write the book to two textfiles using UTF-8 and UTF-32 encoding respectively
+
