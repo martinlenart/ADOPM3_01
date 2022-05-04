@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
+using System.Runtime.InteropServices;
 
 namespace ADOPM3_01_14
 {
@@ -19,12 +20,11 @@ namespace ADOPM3_01_14
             ZipFile.CreateFromDirectory(startPath, zipFile);
             Console.WriteLine($"Zip Created: {zipFile}");
 
-
             if (Directory.Exists(extractPath)) Directory.Delete(extractPath, true);
             ZipFile.ExtractToDirectory(zipFile, extractPath);
             Console.WriteLine($"Zip Extracted: {extractPath}");
 
-            OpenFolder(startPath);
+            OpenFileExplorer(startPath);
 
             //ZipArchive
             Console.WriteLine();
@@ -35,16 +35,16 @@ namespace ADOPM3_01_14
                     Console.WriteLine(entry.FullName);
                 }
             }
-
         }
-        private static void OpenFolder(string folderPath)
+
+        private static void OpenFileExplorer(string folderPath)
         {
             if (Directory.Exists(folderPath))
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo
                 {
                     Arguments = folderPath,
-                    FileName = "explorer.exe"
+                    FileName = FileExplorer()
                 };
 
                 Process.Start(startInfo);
@@ -53,6 +53,28 @@ namespace ADOPM3_01_14
             {
                 Console.WriteLine(string.Format("{0} Directory does not exist!", folderPath));
             }
+        }
+
+        private static string FileExplorer()
+        {
+            if (OperatingSystem.IsMacOS) return "open";
+
+            //assume Windows platform.
+            //Need to check app in Linux
+            return "explorer";
+        }
+
+        //Ask the .NET runtime on which platfrom it is running
+        private static class OperatingSystem
+        {
+            public static bool IsWindows =>
+                RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
+
+            public static bool IsMacOS =>
+                RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
+
+            public static bool IsLinux =>
+                RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
         }
     }
         //Exercises:
