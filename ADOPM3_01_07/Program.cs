@@ -30,7 +30,7 @@ namespace ADOPM3_01_07
 
 				//readback using StreamReader in a using declaration
 				using var reader = File.OpenText(fname("Example4_07.txt")); //Using declaration
-				Console.WriteLine(reader.ReadLine());
+				Console.WriteLine(reader.ReadToEnd());
 
 			}
 
