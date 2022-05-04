@@ -60,7 +60,7 @@ namespace ADOPM3_01_10
 }
 //Exercises:
 //1. Use StringBuilder to create a book consisting of 100_000 words n random order from the
-//   sentence "The quick brown fox catches the white rabbit.."
+//   sentence "The quick brown fox catches the white rabbit . ."
 //2. Write to a textfile using streams
 
 
