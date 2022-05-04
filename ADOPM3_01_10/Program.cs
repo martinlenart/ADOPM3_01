@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Diagnostics;
+using System.Text;
 
 namespace ADOPM3_01_10
 {
@@ -8,6 +10,22 @@ namespace ADOPM3_01_10
     {
         static void Main(string[] args)
         {
+			var t2 = new Stopwatch();
+			t2.Start();
+
+			var sbBook = new StringBuilder();
+			for (int i = 0; i < 100_000; i++)
+			{
+				sbBook.Append("Hej hopp! ");
+			}
+
+			Console.WriteLine(sbBook.Length);
+
+			t2.Stop();
+			Console.WriteLine(t2.ElapsedMilliseconds);
+
+
+			/*
 			string filename = fname("Example4_10.txt");
 
 			using (FileStream fs = File.Create(filename))
@@ -28,6 +46,7 @@ namespace ADOPM3_01_10
 				Console.WriteLine(reader.ReadLine());       
 				Console.WriteLine(reader.ReadLine());       
 			}
+			*/
 
 			static string fname(string name)
 			{
@@ -39,4 +58,9 @@ namespace ADOPM3_01_10
 		}
 	}
 }
+//Exercises:
+//1. Use StringBuilder to create a book consisting of 100_000 words n random order from the
+//   sentence "The quick brown fox catches the white rabbit.."
+//2. Write to a textfile using streams
+
 

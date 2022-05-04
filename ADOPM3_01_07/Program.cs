@@ -27,7 +27,6 @@ namespace ADOPM3_01_07
 			File.WriteAllText(fname("Example4_07.txt"), s);
 			if (File.Exists(fname("Example4_07.txt")))
 			{
-
 				//readback using StreamReader in a using declaration
 				using var reader = File.OpenText(fname("Example4_07.txt")); //Using declaration
 				Console.WriteLine(reader.ReadToEnd());
