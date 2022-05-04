@@ -9,7 +9,7 @@ namespace ADOPM3_01_13
     {
         static void Main(string[] args)
         {
-            string[] words = "The quick brown fox jumps over the lazy dog".Split();
+            string[] words = "The quick brown fox jumps over the lazy dog and catches the white rabbit .".Split();
             Random rand = new Random();
 
             StringBuilder sb = new StringBuilder();
@@ -30,13 +30,16 @@ namespace ADOPM3_01_13
             using (TextWriter w = new StreamWriter(ds))
                 w.Write(sb);
 
-            Console.WriteLine(new FileInfo(fname("Example4_13_compressed.bin")).Length);
+            Console.WriteLine(new FileInfo(fname("Example4_13_compressed.zip")).Length);
 
-            
+
             using (Stream s = File.OpenRead(fname("Example4_13_compressed.zip")))
             using (Stream ds = new GZipStream(s, CompressionMode.Decompress))
             using (TextReader r = new StreamReader(ds))
-                Console.Write(r.ReadToEnd());
+            {
+                var sReadback = r.ReadToEnd();
+                //Console.Write(sReadback);
+            }
             
 
             static string fname(string name)
